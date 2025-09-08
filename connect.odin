@@ -126,7 +126,7 @@ check_win :: proc(slot_x : int, slot_y: int) -> ( win : bool){//check win condit
 	i : i8
 	streak : int
 	if(slot_y < 4){//higher values cant give a win and will break code
-		for i in 0..3{//simplest way to write a for loop in odin
+		for i in 0..=3{//simplest way to write a for loop in odin
 			if streak == i{//if streak not broken
 				if slots[slot_x][slot_y + i] == play{
 				streak+=1
@@ -141,7 +141,7 @@ check_win :: proc(slot_x : int, slot_y: int) -> ( win : bool){//check win condit
 		}				
 	}
 	if slot_x < 4{//left
-		for i in 0..3{
+		for i in 0..=3{
 			if streak == i{
 				if slots[slot_x + i][slot_y] == play{
 					streak+=1
@@ -157,7 +157,7 @@ check_win :: proc(slot_x : int, slot_y: int) -> ( win : bool){//check win condit
 		return true
 		}
 		if slot_y < 4{//left/down
-			for i in 0..3{
+			for i in 0..=3{
 			if streak == i{
 				if slots[slot_x + i][slot_y + i] == play{
 					streak+=1
@@ -174,7 +174,7 @@ check_win :: proc(slot_x : int, slot_y: int) -> ( win : bool){//check win condit
 			}
 		}
 		if slot_y > 2{//left/up
-			for i in 0..3{
+			for i in 0..=3{
 			if streak == i{
 				if slots[slot_x + i][slot_y - i] == play{
 					streak+=1
@@ -195,7 +195,7 @@ check_win :: proc(slot_x : int, slot_y: int) -> ( win : bool){//check win condit
 	}
 	
 	if slot_x > 2{//right
-	for i in 0..3{
+	for i in 0..=3{
 		if streak == i{
 			if (slots[slot_x - i][slot_y] == play){
 				streak+=1
@@ -212,7 +212,7 @@ check_win :: proc(slot_x : int, slot_y: int) -> ( win : bool){//check win condit
 		}
 		
 		if slot_y < 4{//right/down
-			for i in 0..3{
+			for i in 0..=3{
 			if streak == i{
 				if slots[slot_x - i][slot_y + i] == play{
 					streak+=1
@@ -229,7 +229,7 @@ check_win :: proc(slot_x : int, slot_y: int) -> ( win : bool){//check win condit
 			}
 		}
 		if slot_y > 2{//right/up
-			for i in 0..3{
+			for i in 0..=3{
 			if streak == i{
 				if slots[slot_x - i][slot_y - i] == play{
 					streak+=1
@@ -400,3 +400,4 @@ main :: proc() {
 		
         }
     }
+
